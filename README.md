@@ -1,2 +1,3 @@
-# paro
-Praktyczne Aspekty Rozwoju Oprogramowania
+# Praktyczne Aspekty Rozwoju Oprogramowania
+
+materiały na zajęcia.
