@@ -46,9 +46,6 @@ target_link_libraries(podstawowa_synchronizacja ${sanitizer_link_libs})
 add_executable(przekazywanie_przez_kolejke przekazywanie_przez_kolejke.cpp)
 target_link_libraries(przekazywanie_przez_kolejke external ${sanitizer_link_libs})
 
-add_executable(future_promise future_promise.cpp)
-target_link_libraries(future_promise external ${sanitizer_link_libs})
-
 add_executable(stworzenie_watku stworzenie_watku.cpp)
 target_link_libraries(stworzenie_watku ${sanitizer_link_libs})
 
