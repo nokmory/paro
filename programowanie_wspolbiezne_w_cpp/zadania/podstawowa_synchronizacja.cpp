@@ -3,23 +3,22 @@
 #include <string>
 #include <typeinfo>
 #include <iostream>
-#include <boost/lexical_cast.hpp>
+#include <sstream>
 
 std::string output;
 
-
 void addLines(unsigned count)
 {
-  const auto id = boost::lexical_cast<std::string>( std::this_thread::get_id() );
+  std::ostringstream ss;
+  ss << std::this_thread::get_id();
   for(unsigned i=0; i<count; ++i)
   {
-    output += id;
+    output += ss.str();
     output += ": #";
     output += std::to_string(i);
     output += "\n";
   }
 }
-
 
 
 int main()
