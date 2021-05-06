@@ -22,6 +22,6 @@ int main()
   std::thread t2(foo, std::ref(name));
   t2.join();
 
-  // std::thread t3(bar, name);
-  // t3.join();
+   std::thread t3(bar, std::ref(name));
+   t3.join();
 }

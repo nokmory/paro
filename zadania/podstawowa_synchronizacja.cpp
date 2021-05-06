@@ -3,9 +3,12 @@
 #include <string>
 #include <typeinfo>
 #include <iostream>
+#include <mutex>
 #include <sstream>
 
 std::string output;
+std::mutex m;
+using Lock = std::lock_guard<std::mutex>;
 
 void addLines(unsigned count)
 {
@@ -13,13 +16,13 @@ void addLines(unsigned count)
   ss << std::this_thread::get_id();
   for(unsigned i=0; i<count; ++i)
   {
+    const Lock lock(m);
     output += ss.str();
     output += ": #";
     output += std::to_string(i);
     output += "\n";
   }
 }
-
 
 int main()
 {

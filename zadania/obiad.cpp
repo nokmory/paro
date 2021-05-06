@@ -1,6 +1,6 @@
 #include <future>
 #include <iostream>
-#include "obiad.hpp"
+#include "external/obiad.hpp"
 
 Herbata                zrob_herbate(Woda, TorebkaHerbaty);
 PokrojonySurowyKurczak pokroj_kurczaka(SurowyKurczak);
@@ -17,11 +17,13 @@ Obiad ugotuj()
   SurowyKurczak   surowyKurczak;
   TorebkaHerbaty  torebkaHerbaty;
 
-  // TODO: tutaj
-  // HINT: std::async(std::launch::async, ...)
+  auto herbata = std::async(std::launch::async, zrob_herbate, woda, torebkaHerbaty);
+  auto ziemniaki = std::async(std::launch::async, ugotuj_ziemniaki, woda, suroweZiemniaki);
+  auto kurczak = std::async(std::launch::async,  pokroj_kurczaka, surowyKurczak);
+  auto usmazonyKurczak = std::async(std::launch::async,  usmaz_kurczaka, kurczak.get());
+  std::async(std::launch::async, zrob_obiad, ziemniaki.get(), usmazonyKurczak.get(), herbata.get());
+
 }
-
-
 
 int main()
 {

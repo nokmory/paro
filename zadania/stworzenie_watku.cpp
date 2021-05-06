@@ -7,18 +7,17 @@ void greeter(std::string who)
 {
   for (size_t i = 0; i < 5; i++)
   {
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     std::cout << "Hi " << who << "!" << std::endl;
   }
 }
 
 int main()
 {
-  std::string name("PasteYourNameHere");
+  std::string name("Name");
 
-  // TODO: stworzyc watek
-
-
-  std::this_thread::sleep_for(std::chrono::seconds(5));
+  std::thread t(&greeter, name);
+  t.join();
   return 0;
+
 }
