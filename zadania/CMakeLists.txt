@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 add_definitions(-Wall)
-add_definitions(-std=c++11)
+add_definitions(-std=c++14)
 
 # ignore some warning for demos
 add_definitions(-Wno-unused-variable)
@@ -57,3 +57,6 @@ target_link_libraries(wyjatki ${sanitizer_link_libs})
 
 add_executable(obiad obiad.cpp)
 target_link_libraries(obiad ${sanitizer_link_libs})
+
+add_executable(promise promise.cpp)
+target_link_libraries(promise ${sanitizer_link_libs})
