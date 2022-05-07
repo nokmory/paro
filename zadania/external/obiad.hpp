@@ -1,6 +1,7 @@
 #pragma once
 #include <future>
 #include <chrono>
+#include <thread>
 
 struct Obiad {};
 struct SuroweZiemniaki {};
