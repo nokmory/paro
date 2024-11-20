@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
+project(PARO-Parallel CXX)
+
 add_definitions(-Wall)
-add_definitions(-std=c++14)
+add_definitions(-std=c++20)
 
 # ignore some warning for demos
 add_definitions(-Wno-unused-variable)
